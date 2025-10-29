@@ -5,6 +5,7 @@ st.set_page_config(layout="wide")
 #....Diretrizes de Inserção
 st.title("Diretrizes de Inserção")
 st.write("teste salvar!") 
+st.image("TE10.gif", caption="Figura 1 - TE 10", width=300)
 #.....Posicionamento
 choice1 = st.selectbox('Para diretrizes de posicionamento escolha a TE asociadas',[' ','TP 10 Evolução geométrica linear','TP 11 Evolução geométrica volumétrica','TP 12 Dinamização']) 
 if choice1 == 'TP 10 Evolução geométrica linear':
