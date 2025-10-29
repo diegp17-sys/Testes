@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+# from PIL import Image
 
 st.set_page_config(layout="wide")
 #....Diretrizes de Inserção
@@ -80,6 +80,6 @@ if choice1 == 'TP 12 Dinamização':
     st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=700)
 
 #streamlit run teste5.py  
- 
+#pip freeze > requirements.txt
 
 
