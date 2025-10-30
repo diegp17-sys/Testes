@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+#from PIL import Image
 
 st.set_page_config(layout="wide")
 #....Diretrizes de Inserção
@@ -35,7 +35,7 @@ if choice1 == 'TEA 12 Dinamização':
     st.image("TE12.gif", caption="Figura 1 - TE 12", width=700)
     st.image("DFX_alinhamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=700)
 
-
+st.write("teste salvar") 
 #streamlit run AD1.py  
  
 
