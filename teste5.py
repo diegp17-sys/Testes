@@ -359,8 +359,8 @@ if choice2 == 'TEA 18 – Combinar sistemas diferentes':
 
 #...
 
-
-#diretrizes de orientacao 
+#................................................................................
+#.......................diretrizes de orientacao................................
 choice2 = st.selectbox('Para diretrizes de orientacao e simetria escolha a TE asociada',[' ','TA1','TA2','TA3']) 
 if choice2 == 'TA1':
     st.write("Descricao.... "
