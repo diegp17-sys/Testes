@@ -17,8 +17,11 @@ if choice1 == 'TP 10 Evolução geométrica linear':
     st.write("Descrição:.... "
             "Aumenta:..."
             "Reduz:...") 
-    st.image("TE10.gif", caption="Figura 1 - TE 10", width=300)
-    st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE10.gif", caption="Figura 1 - TE 10", width=400)
+    with cols[2]:
+        st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
     #...selecionar etapas
     etapas=['1','2','3','4','5']
     choicem = st.select_slider('Etapa atual:', options=etapas)
@@ -41,9 +44,12 @@ if choice1 == 'TP 10 Evolução geométrica linear':
 if choice1 == 'TP 11 Evolução geométrica volumétrica':
     st.write("Descrição:.... "
              "Aumenta:....") 
-    st.image("TE11.gif", caption="Figura 1 - TE 11", width=300)
-    st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
-        #...selecionar etapas
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE11.gif", caption="Figura 1 - TE 11", width=300)
+    with cols[2]:
+        st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
+    #...selecionar etapas
     etapas=['1','2','3','4','5']
     choicem2 = st.select_slider('Etapa atual:', options=etapas)
     st.write("A etapa é: ",choicem2)
@@ -65,9 +71,12 @@ if choice1 == 'TP 12 Dinamização':
     st.write("Descrição:.... "
             "Aumenta:..."
             "Reduz:...") 
-    st.image("TE12.gif", caption="Figura 1 - TE 12", width=300)
-    st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
-        #...selecionar etapas
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE12.gif", caption="Figura 1 - TE 12", width=400)
+    with cols[2]:
+        st.image("DFX_posicionamento.gif", caption="Figura 2 - Diretrizes de posicionamento", width=300)
+    #...selecionar etapas
     etapas1=['1','2','3','4','5']
     choicem1 = st.select_slider('Etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem1)
@@ -190,5 +199,5 @@ st.plotly_chart(fig, use_container_width=True)
 
 #streamlit run teste5.py  
 #pip freeze > requirements.txt
-
+#pip show plotly
 
