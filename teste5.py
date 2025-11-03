@@ -8,6 +8,7 @@ st.set_page_config(layout="wide")
 #...matrizes
 mz1 = np.zeros((1,7))
 mz2 = np.zeros((1,7))
+mz3 = np.zeros((1,7))
 #mz1[0,0]=1
 #....Diretrizes de Inserção
 st.title("Diretrizes de Inserção")
@@ -361,17 +362,91 @@ if choice2 == 'TEA 18 – Combinar sistemas diferentes':
 
 #................................................................................
 #.......................diretrizes de orientacao................................
-choice2 = st.selectbox('Para diretrizes de orientacao e simetria escolha a TE asociada',[' ','TA1','TA2','TA3']) 
-if choice2 == 'TA1':
-    st.write("Descricao.... "
-             "etapas!") 
-    st.image("TE1.gif", caption="figura 1 ", width=500)
-if choice2 == 'TA2':
-    st.write("Descricao.... "
-             "etapas!") 
-    st.image("TE2.gif", caption="figura 1 ", width=500)
+choice3 = st.selectbox('Para diretrizes de orientacao e simetria escolha a TE asociada',[' ','TES Simetria','TES Casamento com não-linearidades externas','TES Aumento do uso da cor']) 
+if choice3 == 'TES Simetria':
+    st.write("Descrição:.... "
+            "Aumenta:..."
+            "Reduz:...") 
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE8.gif", caption="Figura 1 - TE 12", width=400)
+    with cols[2]:
+        st.image("DFX_simetria.gif", caption="Figura 3 - Diretrizes de simetria", width=300)
+    #...selecionar etapas
+    etapass=['1','2','3','4','5']
+    choicems8 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    #st.write("A etapa é: ",choicem)
+    mz3[0,0]='8'
+    mz3[0,6]=choicems8
+    if choicems8 == '1':
+        mz3[0,1]=1
+    if choicems8 == '2':
+        mz3[0,2]=1
+    if choicems8 == '3':
+        mz3[0,3]=1 
+    if choicems8 == '4':
+        mz3[0,4]=1
+    if choicems8 == '5':
+        mz3[0,5]=1
+    np.save(file = 'TES8', arr=mz3) 
+    #.....fim etapas
 
-#...
+if choice3 == 'TES Casamento com não-linearidades externas':
+    st.write("Descrição:.... "
+            "Aumenta:..."
+            "Reduz:...") 
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE15.gif", caption="Figura 1 - TE 15", width=400)
+    with cols[2]:
+        st.image("DFX_simetria.gif", caption="Figura 3 - Diretrizes de simetria", width=300)
+    #...selecionar etapas
+    etapass=['1','2','3','4','5']
+    choicems15 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    #st.write("A etapa é: ",choicem)
+    mz3[0,0]='15'
+    mz3[0,6]=choicems15
+    if choicems15 == '1':
+        mz3[0,1]=1
+    if choicems15 == '2':
+        mz3[0,2]=1
+    if choicems15 == '3':
+        mz3[0,3]=1 
+    if choicems15 == '4':
+        mz3[0,4]=1
+    if choicems15 == '5':
+        mz3[0,5]=1
+    np.save(file = 'TES15', arr=mz3) 
+    #.....fim etapas
+
+#TES Aumento do uso da cor
+if choice3 == 'TES Aumento do uso da cor':
+    st.write("Descrição:.... "
+            "Aumenta:..."
+            "Reduz:...") 
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE21.gif", caption="Figura 1 - TE 15", width=400)
+    with cols[2]:
+        st.image("DFX_simetria.gif", caption="Figura 3 - Diretrizes de simetria", width=300)
+    #...selecionar etapas
+    etapass=['1','2','3','4','5']
+    choicems21 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    #st.write("A etapa é: ",choicem)
+    mz3[0,0]='21'
+    mz3[0,6]=choicems21
+    if choicems21 == '1':
+        mz3[0,1]=1
+    if choicems21 == '2':
+        mz3[0,2]=1
+    if choicems21 == '3':
+        mz3[0,3]=1 
+    if choicems21 == '4':
+        mz3[0,4]=1
+    if choicems21 == '5':
+        mz3[0,5]=1
+    np.save(file = 'TES21', arr=mz3) 
+    #.....fim etapas
 
 
 
@@ -399,7 +474,7 @@ if choice1 == 'TP 12 Dinamização':
 
 #st.write(mz1) 
 #etapasmatriz = ['TE / Etapas','1','2','3','4','5']
-Vzero = np.zeros((1,7))
+Vz = [1,1,1,1,1,1,1]
 st.write("TE     Estagios - Diretrizes de posicionamento")
 vetorte10 = np.load(file = 'TE10.npy')
 vetorte11 = np.load(file = 'TE11.npy')
@@ -408,31 +483,42 @@ vetorte13 = np.load(file = 'TE13.npy')
 vetorte16 = np.load(file = 'TE16.npy')
 vetorte17 = np.load(file = 'TE17.npy')
 vetorte18 = np.load(file = 'TE18.npy')
-matriz = np.vstack([Vzero,vetorte10, vetorte11, vetorte12, vetorte13, Vzero, vetorte16, vetorte17,vetorte18])
+matriz = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetorte10, vetorte11, vetorte12, vetorte13, Vz, vetorte16, vetorte17,vetorte18,Vz])
 st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
 val=matriz[:,6]
 #st.write("Vlor de cada tendencia",val)
 
 #...
 #Vzero = np.zeros((1,7))
-Vzero = [1,1,1,1,1,1,1]
+Vz = [1,1,1,1,1,1,1]
 st.write("TE     Estagios  - Diretrizes de alinhamento")
 vetortea12 = np.load(file = 'TEA12.npy')
 vetortea15 = np.load(file = 'TEA15.npy')
 vetortea16 = np.load(file = 'TEA16.npy')
 vetortea17 = np.load(file = 'TEA17.npy')
 vetortea18 = np.load(file = 'TEA18.npy')
-matriz = np.vstack([Vzero,Vzero, Vzero, vetortea12, Vzero, vetortea15, vetortea16, vetortea17,vetortea18])
+matriz = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortea12,Vz,vetortea15, vetortea16, vetortea17,vetortea18,Vz])
 st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
 vala=matriz[:,6]
-#st.write("Vlor de cada tendencia",vala)
 
+
+#Vzero = np.zeros((1,7))
+Vz = [0.6,0.6,0.6,0.6,0.6,0.6,0.6]
+st.write("TE     Estagios  - Diretrizes de simetria")
+vetortes8 = np.load(file = 'TES8.npy')
+vetortes15 = np.load(file = 'TES15.npy')
+vetortes21 = np.load(file = 'TES21.npy')
+matriz = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes8,Vz,Vz,Vz, Vz, Vz, vetortes15, Vz, Vz,Vz,vetortes21])
+st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
+vals=matriz[:,6]
+
+st.title("Gráfico radar do potencial evolucionário")
 #...graf radar
 df = pd.DataFrame({
-    'Eje': ['Mat. Inteligentes','S linear', 'S espaço', 'S super', 'S. objeto1', 'S. objeto2', 'S. objeto3', 'S. objeto4','zero'],
+    'Eje': ['Mat. inteligentes','Seg. espaço ','S. superfície','S. objeto','Macro/nano','Redes e fibras','Densidade','Assimetria','Linhas divisórias','E. geometria linear', 'E. geométrica volumétrica', 'Dinamizar','Coor. ações', 'Não-linearidades externas', 'Comb. sistemas similares', 'Comb. sistemas diversos','Comb. sistemas diferentes ','cor'],
     'Valor': val,
     'Valor 1': vala,
-    #'Valor 2': [0, 0, 0, 1,1,1,1,1,1],
+    'Valor 2': vals,
     #'Valor 2': [4, 0, 3, 4, 5]
 })
 
@@ -450,6 +536,12 @@ fig.add_trace(go.Scatterpolar(
         fill='toself',
         name='Alinhamento'
     ))
+fig.add_trace(go.Scatterpolar(
+        r=df['Valor 2'],
+        theta=df['Eje'],
+        fill='toself',
+        name='Simetria'
+    ))
 fig.update_layout(
         polar=dict(
             radialaxis=dict(
@@ -462,7 +554,7 @@ fig.update_layout(
 st.plotly_chart(fig, use_container_width=True)
 
 
-#streamlit run teste6.py  
+#streamlit run teste5.py  
 #pip freeze > requirements.txt
 #pip show plotly
 
