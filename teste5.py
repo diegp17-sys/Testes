@@ -16,21 +16,15 @@ mz7 = np.zeros((1,8))
 mz8 = np.zeros((1,8))
 #mz1[0,0]=1
 #....Diretrizes de Inserção
-st.title("Diretrizes de Inserção")
+st.title("Operações de Inserção")
 #............................Posicionamento..............................
-choice1 = st.selectbox('Para diretrizes de posicionamento escolha a TE asociadas',[' ','TP 10 Evolução geométrica linear','TP 11 Evolução geométrica volumétrica','TP 12 Dinamização','TP 13 – Coordenação das ações','TP 16 – Combinar sistemas similares','TP 17 – Combinar sistemas diversos','TP 18 – Combinar sistemas diferentes']) 
+choice1 = st.selectbox('Para as diretrizes de posicionamento ',['Escolha a TE asociada','TP 10 Evolução geométrica linear','TP 11 Evolução geométrica volumétrica','TP 12 Dinamização','TP 13 – Coordenação das ações','TP 16 – Combinar sistemas similares','TP 17 – Combinar sistemas diversos','TP 18 – Combinar sistemas diferentes']) 
 if choice1 == 'TP 10 Evolução geométrica linear':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE10R0.png", caption="Figura 1 - TE 10", width=700)
-    with cols[2]:
-        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=500)
-    #...selecionar etapas
+    st.write("Descrição: Passar de um objeto de 1D ou 2D para 3D, de acordo com os requerimentos.")
+    st.write("Aumenta: Distribuição de cargas e de fluxo, área de superfície, facilita orientação de montagem, nova função, resistência, momento de inercia, estética, ergonomia.")
+    #...selecionar etapas.....
     etapas=['1','2','3','4']
-    choicem10 = st.select_slider('Etapa atual:', options=etapas)
+    choicem10 = st.select_slider('Selecione a etapa atual:', options=etapas)
     #st.write("A etapa é: ",choicem)
     mz1[0,0]='10'
     mz1[0,6]=choicem10
@@ -46,20 +40,22 @@ if choice1 == 'TP 10 Evolução geométrica linear':
     if choicem10 == '4':
         mz1[0,4]=1
         mz1[0,7]=104
-
     np.save(file = 'TE10', arr=mz1) 
-    #.....fim etapas
-if choice1 == 'TP 11 Evolução geométrica volumétrica':
-    st.write("Descrição:.... "
-             "Aumenta:....") 
+#.....fim etapas
+#....plotar figuras....
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE11R0.png", caption="Figura 1 - TE 11", width=700)
+        st.image("TE10R0.png", caption="Figura 1 - TE 10", width=700)
     with cols[2]:
-        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
+        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=500)
+
+
+if choice1 == 'TP 11 Evolução geométrica volumétrica':
+    st.write("**Descrição:** A geometria volumétrica pode melhorar ou adicionar caraterísticas. A evolução da tecnologia facilita esta tendencia.")
+    st.write("**Aumenta:** Distribuição de cargas e de fluxo, área de superfície, facilita orientação de montagem, nova função, resistência, momento de inercia, estética, ergonomia." )
     #...selecionar etapas
     etapas=['1','2','3','4']
-    choicem11 = st.select_slider('Etapa atual:', options=etapas)
+    choicem11 = st.select_slider('Selecione a etapa atual:', options=etapas)
     st.write("A etapa é: ",choicem11)
     mz1[0,0]='11'
     mz1[0,6]=choicem11
@@ -77,18 +73,21 @@ if choice1 == 'TP 11 Evolução geométrica volumétrica':
         mz1[0,7]=114
     np.save(file = 'TE11', arr=mz1) 
     #.....fim etapas
-if choice1 == 'TP 12 Dinamização':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #st.write("**Reduz:** Número de peças ") 
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE12R0.png", caption="Figura 1 - TE 12", width=900)
+        st.image("TE11R0.png", caption="Figura 1 - TE 11", width=700)
     with cols[2]:
         st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
-    #...selecionar etapas
+
+
+if choice1 == 'TP 12 Dinamização':
+    st.write("Descrição: Elementos rígidos tronam-se mais flexíveis e dinâmicos por meio de juntas. ")
+    st.write("Aumenta: Manobrabilidade, flexibilidade de posicionamento, facilidade para montagem, variabilidade." )
+    st.write("Reduz: Espaço, dificuldade de alinhamento. ") 
+     #...selecionar etapas
     etapas1=['1','2','3','4','5']
-    choicem12 = st.select_slider('Etapa atual:', options=etapas1)
+    choicem12 = st.select_slider('Selecione a etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem12)
     mz1[0,0]=12
     mz1[0,6]=choicem12
@@ -109,19 +108,23 @@ if choice1 == 'TP 12 Dinamização':
         mz1[0,7]=125
     np.save(file = 'TE12', arr=mz1) 
     #.....fim etapas
-# TE13
-if choice1 == 'TP 13 – Coordenação das ações':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+  #...plot fig 
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE13R0.png", caption="Figura 1 - TE 13", width=770)
+        st.image("TE12R0.png", caption="Figura 1 - TE 12", width=900)
     with cols[2]:
         st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
-    #...selecionar etapas
+
+
+
+# TE13
+if choice1 == 'TP 13 – Coordenação das ações':
+    st.write("Descrição: As ações desempenhadas dentro do sistema podem evoluir de não coordenada para parcialmente ou totalmente coordenada até desempenhar diferentes ações durante os intervalos.")
+    st.write("Aumenta: Eficiência do sistema, resposta a mudanças externas, segurança, novas funções." )
+    st.write("Reduz: Probabilidade de danos ao sistema, desgaste e tempo de vida útil.") 
+     #...selecionar etapas
     etapas1=['1','2','3','4']
-    choicem13 = st.select_slider('Etapa atual:', options=etapas1)
+    choicem13 = st.select_slider('Selecione a etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem13)
     mz1[0,0]=13
     mz1[0,6]=choicem13
@@ -139,20 +142,21 @@ if choice1 == 'TP 13 – Coordenação das ações':
         mz1[0,7]=134
     np.save(file = 'TE13', arr=mz1) 
     #.....fim etapas
+  #...plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE13R0.png", caption="Figura 1 - TE 13", width=770)
+    with cols[2]:
+        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
 
 # TE16
 if choice1 == 'TP 16 – Combinar sistemas similares':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE16R0.png", caption="Figura 1 - TE 16", width=770)
-    with cols[2]:
-        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
-    #...selecionar etapas
+    st.write("Descrição: Objetos similares podem ser introduzidos adicionalmente para desempenhar várias funções requeridas.")
+    st.write("Aumenta: Quantidade de funções, distribuir funções, melhor conveniência para o usuário." )
+    st.write("Reduz: Custo por componente do sistema.") 
+     #...selecionar etapas
     etapas1=['1','2','3','4']
-    choicem16 = st.select_slider('Etapa atual:', options=etapas1)
+    choicem16 = st.select_slider('Selecione a etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem16)
     mz1[0,0]=16
     mz1[0,6]=choicem16
@@ -170,21 +174,22 @@ if choice1 == 'TP 16 – Combinar sistemas similares':
         mz1[0,7]=164
     np.save(file = 'TE16', arr=mz1) 
     #.....fim etapas
+   #...plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE16R0.png", caption="Figura 1 - TE 16", width=770)
+    with cols[2]:
+        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
 
 
 # TE17
 if choice1 == 'TP 17 – Combinar sistemas diversos':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE17R0.png", caption="Figura 1 - TE 16", width=770)
-    with cols[2]:
-        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapas1=['1','2','3','4']
-    choicem17 = st.select_slider('Etapa atual:', options=etapas1)
+    choicem17 = st.select_slider('Selecione a etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem17)
     mz1[0,0]=17
     mz1[0,6]=choicem17
@@ -202,20 +207,21 @@ if choice1 == 'TP 17 – Combinar sistemas diversos':
         mz1[0,7]=174
     np.save(file = 'TE17', arr=mz1) 
     #.....fim etapas
+    #...plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE17R0.png", caption="Figura 1 - TE 16", width=770)
+    with cols[2]:
+        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
 
 # TE18
 if choice1 == 'TP 18 – Combinar sistemas diferentes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE18R0.png", caption="Figura 1 - TE 16", width=770)
-    with cols[2]:
-        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
-    #...selecionar etapas
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
+     #...selecionar etapas
     etapas1=['1','2','3','4']
-    choicem18 = st.select_slider('Etapa atual:', options=etapas1)
+    choicem18 = st.select_slider('Selecione a etapa atual:', options=etapas1)
     st.write("A etapa é: ",choicem18)
     mz1[0,0]=18
     mz1[0,6]=choicem18
@@ -233,24 +239,25 @@ if choice1 == 'TP 18 – Combinar sistemas diferentes':
         mz1[0,7]=184
     np.save(file = 'TE18', arr=mz1) 
 #.....fim etapas
+   #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE18R0.png", caption="Figura 1 - TE 16", width=770)
+    with cols[2]:
+        st.image("DFX_posicionamento.png", caption="Figura 2 - Diretrizes de posicionamento", width=600)
 
 #...................................................................................................
 #..........................Diretrizes de Alinhamento................................................
 #...................................................................................................
-choice2 = st.selectbox('Para diretrizes de alinhamento escolha a TE asociadas',[' ','TEA 15 - Casamento com não-linearidades externas','TEA 16 – Combinar sistemas similares','TEA 17 – Combinar sistemas diversos','TEA 18 – Combinar sistemas diferentes'],) 
+choice2 = st.selectbox('Para diretrizes de alinhamento',['Escolha a TE asociada','TEA 15 - Casamento com não-linearidades externas','TEA 16 – Combinar sistemas similares','TEA 17 – Combinar sistemas diversos','TEA 18 – Combinar sistemas diferentes'],) 
 
 if choice2 == 'TEA 15 - Casamento com não-linearidades externas':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE15R0.png", caption="Figura 1 - TE 15", width=770)
-    with cols[2]:
-        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=600)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapasa=['1','2','3']
-    choicema15 = st.select_slider('Etapa atual do alinhmanto:', options=etapasa)
+    choicema15 = st.select_slider('Selecione a etapa atual:', options=etapasa)
     #st.write("A etapa é: ",choicem)
     mz2[0,0]='15'
     mz2[0,6]=choicema15
@@ -265,19 +272,20 @@ if choice2 == 'TEA 15 - Casamento com não-linearidades externas':
         mz2[0,7]=153
     np.save(file = 'TEA15', arr=mz2) 
     #.....fim etapas
-
-if choice2 == 'TEA 16 – Combinar sistemas similares':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE16R0.png", caption="Figura 1 - TE 15", width=770)
+        st.image("TE15R0.png", caption="Figura 1 - TE 15", width=770)
     with cols[2]:
         st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=600)
+
+if choice2 == 'TEA 16 – Combinar sistemas similares':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapasa=['1','2','3','4']
-    choicema16 = st.select_slider('Etapa atual do alinhmanto:', options=etapasa)
+    choicema16 = st.select_slider('Selecione a etapa atual:', options=etapasa)
     #st.write("A etapa é: ",choicem)
     mz2[0,0]='16'
     mz2[0,6]=choicema16
@@ -295,20 +303,21 @@ if choice2 == 'TEA 16 – Combinar sistemas similares':
         mz2[0,7]=164
     np.save(file = 'TEA16', arr=mz2) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE16R0.png", caption="Figura 1 - TE 15", width=770)
+    with cols[2]:
+        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=600)
 
 
 if choice2 == 'TEA 17 – Combinar sistemas diversos':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE17R0.png", caption="Figura 1 - TE 17", width=770)
-    with cols[2]:
-        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=700)
-    #...selecionar etapas
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
+     #...selecionar etapas
     etapasa=['1','2','3','4']
-    choicem17 = st.select_slider('Etapa atual do alinhmanto:', options=etapasa)
+    choicem17 = st.select_slider('Selecione a etapa atual:', options=etapasa)
     #st.write("A etapa é: ",choicem)
     mz2[0,0]='17'
     mz2[0,6]=choicem17
@@ -326,21 +335,22 @@ if choice2 == 'TEA 17 – Combinar sistemas diversos':
         mz2[0,7]=174
     np.save(file = 'TEA17', arr=mz2) 
     #.....fim etapas
+   #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE17R0.png", caption="Figura 1 - TE 17", width=770)
+    with cols[2]:
+        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=700)
 
 
 
 if choice2 == 'TEA 18 – Combinar sistemas diferentes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE18R0.png", caption="Figura 1 - TE 18", width=770)
-    with cols[2]:
-        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=700)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapasa=['1','2','3','4']
-    choicem18 = st.select_slider('Etapa atual do alinhmanto:', options=etapasa)
+    choicem18 = st.select_slider('Selecione a etapa atual:', options=etapasa)
     #st.write("A etapa é: ",choicem)
     mz2[0,0]='18'
     mz2[0,6]=choicem18
@@ -358,25 +368,26 @@ if choice2 == 'TEA 18 – Combinar sistemas diferentes':
         mz2[0,7]=184
     np.save(file = 'TEA18', arr=mz2) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE18R0.png", caption="Figura 1 - TE 18", width=770)
+    with cols[2]:
+        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=700)
 
 
 #...
 
 #.................................3.........................................................
 #.......................diretrizes de orientacao...........................................
-choice3 = st.selectbox('Para diretrizes de orientação escolha a TE asociada',[' ','TES Simetria','TES Casamento com não-linearidades externas','TES Aumento do uso da cor']) 
+choice3 = st.selectbox('Para diretrizes de orientação',['  Escolha a TE asociada  ','TES Simetria','TES Casamento com não-linearidades externas','TES Aumento do uso da cor']) 
 if choice3 == 'TES Simetria':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE8R0.png", caption="Figura 1 - TE 12", width=770)
-    with cols[2]:
-        st.image("DFX_simetria.png", caption="Figura 3 - Diretrizes de simetria", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3']
-    choicems8 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems8 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz3[0,0]='8'
     mz3[0,6]=choicems8
@@ -391,19 +402,20 @@ if choice3 == 'TES Simetria':
         mz3[0,7]=83
     np.save(file = 'TES8', arr=mz3) 
     #.....fim etapas
-
-if choice3 == 'TES Casamento com não-linearidades externas':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE15R0.png", caption="Figura 1 - TE 15", width=770)
+        st.image("TE8R0.png", caption="Figura 1 - TE 12", width=770)
     with cols[2]:
         st.image("DFX_simetria.png", caption="Figura 3 - Diretrizes de simetria", width=770)
+
+if choice3 == 'TES Casamento com não-linearidades externas':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3']
-    choicems15 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems15 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz3[0,0]='15'
     mz3[0,6]=choicems15
@@ -418,20 +430,21 @@ if choice3 == 'TES Casamento com não-linearidades externas':
         mz3[0,7]=153
     np.save(file = 'TES15', arr=mz3) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE15R0.png", caption="Figura 1 - TE 15", width=770)
+    with cols[2]:
+        st.image("DFX_simetria.png", caption="Figura 3 - Diretrizes de simetria", width=770)
 
 #TES Aumento do uso da cor
 if choice3 == 'TES Aumento do uso da cor':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE21R0.png", caption="Figura 1 - TE 15", width=770)
-    with cols[2]:
-        st.image("DFX_simetria.png", caption="Figura 3 - Diretrizes de simetria", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems21 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems21 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz3[0,0]='21'
     mz3[0,6]=choicems21
@@ -449,22 +462,23 @@ if choice3 == 'TES Aumento do uso da cor':
         mz3[0,7]=214
     np.save(file = 'TES21', arr=mz3) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE21R0.png", caption="Figura 1 - TE 15", width=770)
+    with cols[2]:
+        st.image("DFX_simetria.png", caption="Figura 3 - Diretrizes de simetria", width=770)
 
 #.................................4.........................................................
 #.......................diretrizes de acesso...........................................
-choice3 = st.selectbox('Para diretrizes de acesso escolha a TE asociada',[' ','TE5A – Evoluir de macro para nano','TE12A - Dinamizacao','TE22A – Aumento da transparência','TE27A – Eliminação de componentes']) 
+choice3 = st.selectbox('Para diretrizes de acesso',['Escolha a TE asociada','TE5A – Evoluir de macro para nano','TE12A - Dinamizacao','TE22A – Aumento da transparência','TE27A – Eliminação de componentes']) 
 if choice3 == 'TE5A – Evoluir de macro para nano':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE5R0.png", caption="Figura 1 - TE 5", width=770)
-    with cols[2]:
-        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems5 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems5 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz4[0,0]='5'
     mz4[0,6]=choicems5
@@ -482,19 +496,20 @@ if choice3 == 'TE5A – Evoluir de macro para nano':
         mz4[0,7]=54
     np.save(file = 'TEAC5', arr=mz4) 
     #.....fim etapas
-
-if choice3 == 'TE12A - Dinamizacao':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE12R0.png", caption="Figura 1 - TE 12", width=900)
+        st.image("TE5R0.png", caption="Figura 1 - TE 5", width=770)
     with cols[2]:
-        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=500)
+        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
+
+if choice3 == 'TE12A - Dinamizacao':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems12 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems12 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz4[0,0]='12'
     mz4[0,6]=choicems12
@@ -515,20 +530,21 @@ if choice3 == 'TE12A - Dinamizacao':
         mz4[0,7]=125
     np.save(file = 'TEAC12', arr=mz4) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE12R0.png", caption="Figura 1 - TE 12", width=900)
+    with cols[2]:
+        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=500)
 
 
 if choice3 == 'TE22A – Aumento da transparência':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE22R0.png", caption="Figura 1 - TE 5", width=770)
-    with cols[2]:
-        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems22 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems22 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz4[0,0]='22'
     mz4[0,6]=choicems22
@@ -546,20 +562,21 @@ if choice3 == 'TE22A – Aumento da transparência':
         mz4[0,7]=224
     np.save(file = 'TEAC22', arr=mz4) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE22R0.png", caption="Figura 1 - TE 5", width=770)
+    with cols[2]:
+        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
 
 
 if choice3 == 'TE27A – Eliminação de componentes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE5R0.png", caption="Figura 1 - TE 5", width=770)
-    with cols[2]:
-        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems27 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems27 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz4[0,0]='27'
     mz4[0,6]=choicems27
@@ -577,23 +594,24 @@ if choice3 == 'TE27A – Eliminação de componentes':
         mz4[0,7]=274
     np.save(file = 'TEAC27', arr=mz4) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE5R0.png", caption="Figura 1 - TE 5", width=770)
+    with cols[2]:
+        st.image("DFX_acesso.png", caption="Figura 3 - Diretrizes de acesso", width=770)
 
 
 #.................................5.........................................................
 #.......................diretrizes de ajuste................................................
-choice3 = st.selectbox('Para diretrizes de ajuste escolha a TE asociada',[' ','TE11AJ – Ev. geométrica volumétrica','TE12A - Dinamizacao','TE15AJ – Casamento com não-linearidades externas']) 
+choice3 = st.selectbox('Para diretrizes de ajuste',['Escolha a TE asociada','TE11AJ – Ev. geométrica volumétrica','TE12A - Dinamizacao','TE15AJ – Casamento com não-linearidades externas']) 
 if choice3 == 'TE11AJ – Ev. geométrica volumétrica':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE11R0.png", caption="Figura 1 - TE 5", width=770)
-    with cols[2]:
-        st.image("DFX_ajuste.png", caption="Figura 3 - Diretrizes de ajuste", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems11 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems11 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz5[0,0]='11'
     mz5[0,6]=choicems11
@@ -611,19 +629,20 @@ if choice3 == 'TE11AJ – Ev. geométrica volumétrica':
         mz5[0,7]=114
     np.save(file = 'TE11AJ', arr=mz5) 
     #.....fim etapas
-
-if choice3 == 'TE12A - Dinamizacao':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE12R0.png", caption="Figura 1 - TE 5", width=770)
+        st.image("TE11R0.png", caption="Figura 1 - TE 5", width=770)
     with cols[2]:
         st.image("DFX_ajuste.png", caption="Figura 3 - Diretrizes de ajuste", width=770)
+
+if choice3 == 'TE12A - Dinamizacao':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4','5']
-    choicems12 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems12 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz5[0,0]='12'
     mz5[0,6]=choicems12
@@ -644,19 +663,20 @@ if choice3 == 'TE12A - Dinamizacao':
         mz5[0,7]=125
     np.save(file = 'TE12AJ', arr=mz5) 
     #.....fim etapas
-
-if choice3 == 'TE15AJ – Casamento com não-linearidades externas':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE15R0.png", caption="Figura 1 - TE 5", width=770)
+        st.image("TE12R0.png", caption="Figura 1 - TE 5", width=770)
     with cols[2]:
         st.image("DFX_ajuste.png", caption="Figura 3 - Diretrizes de ajuste", width=770)
+
+if choice3 == 'TE15AJ – Casamento com não-linearidades externas':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3']
-    choicems15 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems15 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz5[0,0]='15'
     mz5[0,6]=choicems15
@@ -671,23 +691,24 @@ if choice3 == 'TE15AJ – Casamento com não-linearidades externas':
         mz5[0,7]=153
     np.save(file = 'TE15AJ', arr=mz5) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE15R0.png", caption="Figura 1 - TE 5", width=770)
+    with cols[2]:
+        st.image("DFX_ajuste.png", caption="Figura 3 - Diretrizes de ajuste", width=770)
 
 
 #.................................6.........................................................
 #.......................diretrizes de integração ...........................................
-choice3 = st.selectbox('Para diretrizes de integração escolha a TE asociada',[' ','TE10I – Evolução da geometria linear','TE11I – Evolução geométrica volumétrica','TE27I – Eliminação de componentes','TE30I – Redução do número de conversões de energia']) 
+choice3 = st.selectbox('Para diretrizes de integração ',['Escolha a TE asociada','TE10I – Evolução da geometria linear','TE11I – Evolução geométrica volumétrica','TE27I – Eliminação de componentes','TE30I – Redução do número de conversões de energia']) 
 if choice3 == 'TE10I – Evolução da geometria linear':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE10R0.png", caption="Figura 1 - TE 5", width=770)
-    with cols[2]:
-        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems10 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems10 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz6[0,0]='10'
     mz6[0,6]=choicems10
@@ -705,19 +726,20 @@ if choice3 == 'TE10I – Evolução da geometria linear':
         mz6[0,7]=104
     np.save(file = 'TE10IN', arr=mz6) 
     #.....fim etapas
-
-if choice3 == 'TE11I – Evolução geométrica volumétrica':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE11R0.png", caption="Figura 1 - TE 11", width=770)
+        st.image("TE10R0.png", caption="Figura 1 - TE 5", width=770)
     with cols[2]:
         st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
+
+if choice3 == 'TE11I – Evolução geométrica volumétrica':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems11 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems11 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz6[0,0]='11'
     mz6[0,6]=choicems11
@@ -735,20 +757,21 @@ if choice3 == 'TE11I – Evolução geométrica volumétrica':
         mz6[0,7]=114
     np.save(file = 'TE11IN', arr=mz6) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE11R0.png", caption="Figura 1 - TE 11", width=770)
+    with cols[2]:
+        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
 
 
 if choice3 == 'TE27I – Eliminação de componentes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE27R0.png", caption="Figura 1 - TE 27", width=770)
-    with cols[2]:
-        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems27 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems27 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz6[0,0]='27'
     mz6[0,6]=choicems27
@@ -766,55 +789,57 @@ if choice3 == 'TE27I – Eliminação de componentes':
         mz6[0,7]=274
     np.save(file = 'TE27IN', arr=mz6) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE27R0.png", caption="Figura 1 - TE 27", width=770)
+    with cols[2]:
+        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
 
 
 if choice3 == 'TE30I – Redução do número de conversões de energia':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE30R0.png", caption="Figura 1 - TE 30", width=770)
-    with cols[2]:
-        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems30 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems31 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
-    mz6[0,0]='30'
-    mz6[0,6]=choicems30
-    if choicems30 == '1':
+    mz6[0,0]='31'
+    mz6[0,6]=choicems31
+    if choicems31 == '1':
         mz6[0,1]=1
-        mz6[0,7]=301
-    if choicems30 == '2':
+        mz6[0,7]=311
+    if choicems31 == '2':
         mz6[0,2]=1
-        mz6[0,7]=302
-    if choicems30 == '3':
+        mz6[0,7]=312
+    if choicems31 == '3':
         mz6[0,3]=1 
-        mz6[0,7]=303
-    if choicems30 == '4':
+        mz6[0,7]=313
+    if choicems31 == '4':
         mz6[0,3]=1 
-        mz6[0,7]=304
-    np.save(file = 'TE30IN', arr=mz6) 
+        mz6[0,7]=314
+    np.save(file = 'TE31IN', arr=mz6) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE31R0.png", caption="Figura 1 - TE 31", width=770)
+    with cols[2]:
+        st.image("DFX_integracao.png", caption="Figura 3 - Diretrizes de integracao", width=770)
 
 
 
 #.................................7.........................................................
 #.......................diretrizes de padronização...........................................
-choice3 = st.selectbox('Para diretrizes de padronização escolha a TE asociada',[' ','TE23P – Foco de compra dos clientes','']) 
+choice3 = st.selectbox('Para diretrizes de padronização',['Escolha a TE asociada','TE23P – Foco de compra dos clientes','']) 
 if choice3 == 'TE23P – Foco de compra dos clientes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE23R0.png", caption="Figura 1 - TE 23", width=700)
-    with cols[2]:
-        st.image("DFX_padronizacao.png", caption="Figura 3 - Diretrizes de padronizacao", width=400)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems23 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems23 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz7[0,0]='23'
     mz7[0,6]=choicems23
@@ -832,23 +857,24 @@ if choice3 == 'TE23P – Foco de compra dos clientes':
         mz7[0,7]=234
     np.save(file = 'TE23PA', arr=mz7) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE23R0.png", caption="Figura 1 - TE 23", width=700)
+    with cols[2]:
+        st.image("DFX_padronizacao.png", caption="Figura 3 - Diretrizes de padronizacao", width=400)
 
 
 #.................................8.........................................................
 #.......................diretrizes de sequencia...........................................
-choice3 = st.selectbox('Para diretrizes de sequencia escolha a TE asociada',[' ','TE13SE – Coordenação das ações','TE16SE – Combinar sistemas similares','TE17SE – Combinar sistemas diversos','TE18SE – Combinar sistemas diferentes','TE26SE – Graus de liberdade']) 
+choice3 = st.selectbox('Para diretrizes de sequencia',['Escolha a TE asociada','TE13SE – Coordenação das ações','TE16SE – Combinar sistemas similares','TE17SE – Combinar sistemas diversos','TE18SE – Combinar sistemas diferentes','TE26SE – Graus de liberdade']) 
 if choice3 == 'TE13SE – Coordenação das ações':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE13R0.png", caption="Figura 1 - TE 13", width=770)
-    with cols[2]:
-        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems13 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems13 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz8[0,0]='13'
     mz8[0,6]=choicems13
@@ -866,19 +892,21 @@ if choice3 == 'TE13SE – Coordenação das ações':
         mz8[0,7]=134
     np.save(file = 'TE13SE', arr=mz8) 
     #.....fim etapas
-
-if choice3 == 'TE16SE – Combinar sistemas similares':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE16R0.png", caption="Figura 1 - TE 13", width=770)
+        st.image("TE13R0.png", caption="Figura 1 - TE 13", width=770)
     with cols[2]:
         st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
+
+
+if choice3 == 'TE16SE – Combinar sistemas similares':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems16 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems16 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz8[0,0]='16'
     mz8[0,6]=choicems16
@@ -896,19 +924,20 @@ if choice3 == 'TE16SE – Combinar sistemas similares':
         mz8[0,7]=164
     np.save(file = 'TE16SE', arr=mz8) 
     #.....fim etapas
-
-if choice3 == 'TE17SE – Combinar sistemas diversos':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
+    #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE17R0.png", caption="Figura 1 - TE 13", width=770)
+        st.image("TE16R0.png", caption="Figura 1 - TE 13", width=770)
     with cols[2]:
         st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
+
+if choice3 == 'TE17SE – Combinar sistemas diversos':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems17 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems17 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz8[0,0]='17'
     mz8[0,6]=choicems17
@@ -926,20 +955,21 @@ if choice3 == 'TE17SE – Combinar sistemas diversos':
         mz8[0,7]=174
     np.save(file = 'TE17SE', arr=mz8) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE17R0.png", caption="Figura 1 - TE 13", width=770)
+    with cols[2]:
+        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
 
 
 if choice3 == 'TE18SE – Combinar sistemas diferentes':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE18R0.png", caption="Figura 1 - TE 13", width=770)
-    with cols[2]:
-        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems18 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems18 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz8[0,0]='18'
     mz8[0,6]=choicems18
@@ -957,21 +987,21 @@ if choice3 == 'TE18SE – Combinar sistemas diferentes':
         mz8[0,7]=184
     np.save(file = 'TE18SE', arr=mz8) 
     #.....fim etapas
-
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE18R0.png", caption="Figura 1 - TE 13", width=770)
+    with cols[2]:
+        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
 
 
 if choice3 == 'TE26SE – Graus de liberdade':
-    st.write("Descrição:.... "
-            "Aumenta:..."
-            "Reduz:...") 
-    cols = st.columns([2, 2, 4])
-    with cols[0]:
-        st.image("TE26R0.png", caption="Figura 1 - TE 13", width=770)
-    with cols[2]:
-        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
     #...selecionar etapas
     etapass=['1','2','3','4']
-    choicems26 = st.select_slider('Etapa atual da simetria:', options=etapass)
+    choicems26 = st.select_slider('Selecione a etapa atual:', options=etapass)
     #st.write("A etapa é: ",choicem)
     mz8[0,0]='26'
     mz8[0,6]=choicems26
@@ -989,6 +1019,12 @@ if choice3 == 'TE26SE – Graus de liberdade':
         mz8[0,7]=264
     np.save(file = 'TE26SE', arr=mz8) 
     #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE26R0.png", caption="Figura 1 - TE 13", width=770)
+    with cols[2]:
+        st.image("DFX_sequencia.png", caption="Figura 3 - Diretrizes de sequencia", width=440)
 
 
 #......................................................................................................
@@ -1057,8 +1093,8 @@ Vz = [1,1,1,1,1,1,1,1]
 vetortes10 = np.load(file = 'TE10IN.npy')
 vetortes11 = np.load(file = 'TE11IN.npy')
 vetortes27 = np.load(file = 'TE27IN.npy')
-vetortes30 = np.load(file = 'TE30IN.npy')
-matriz6 = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes10,vetortes11,Vz,Vz,Vz, Vz, Vz, Vz, Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes27,Vz,Vz,vetortes30,Vz])
+vetortes31 = np.load(file = 'TE31IN.npy')
+matriz6 = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes10,vetortes11,Vz,Vz,Vz, Vz, Vz, Vz, Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes27,Vz,Vz,Vz,vetortes31])
 #st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
 valint=matriz6[:,6]
 
@@ -1087,7 +1123,7 @@ valseq=matriz8[:,6]
 st.title("Gráfico radar do potencial evolucionário")
 #...graf radar
 df = pd.DataFrame({
-    'Eje': ['1 Mat. inteligentes','2 Seg. espaço ','3 S. superfície','4 S. objeto','5 Macro/nano','6 Redes e fibras','7 Densidade','8 Assimetria','9 Linhas divisórias','10 E. geometria linear', '11 E. geométrica volumétrica', '12 Dinamizar','13 Coor. ações', '14 Ritmo','15 Não-linearidades externas', '16 Comb. sistemas similares', '17 Comb. sistemas diversos','18 Comb. sistemas diferentes ','19 Atenuação','20 ..','21 Cor','22 Transparência','23 M. foco de compra','24 ..','25 Ponto de projeto','26 Graus de liberdade','27 Eliminação de componentes','28 Controlabilidade','29 envolvimento humano','30 número de conversões de energia','31 Cor'],
+    'Eje': ['1 Mat. inteligentes','2 Seg. espaço ','3 S. superfície','4 S. objeto','5 Macro/nano','6 Redes e fibras','7 Densidade','8 Assimetria','9 Linhas divisórias','10 E. geometria linear', '11 E. geométrica volumétrica', '12 Dinamização','13 Coor. ações', '14 Coor. ritmos','15 Não-linearidades externas', '16 Comb. sistemas similares', '17 Comb. sistemas diversos','18 Comb. sistemas diferentes ','19 Atenuação reduzida','20 ...','21 Uso da cor','22 Transparência','23 Foco de compra','24 ...','25 Ponto de projeto','26 Graus de liberdade','27 Eliminação de componentes','28 Controlabilidade','29 envolvimento humano','30 ...','31 conversões de energia'],
     'Valor 1': valpos,
     'Valor 2': valali,
     'Valor 3': valori,
@@ -1167,7 +1203,7 @@ st.title("Reporte")
 #st.write(mz1)
 
 
-choicer = st.selectbox('Diretrizes para gerar reporte',[' ','Posicionamento','Alinhamento','Simetria','Acesso','Ajuste','Integracao','Padronizacao','Sequencia']) 
+choicer = st.selectbox('Diretrizes para gerar reporte',['Escolha o grupo de diretrizes','Posicionamento','Alinhamento','Simetria','Acesso','Ajuste','Integração','Padronização','Sequencia']) 
 
 if choicer == 'Posicionamento':
 #    st.write("Potencial evolucionario TE10") 
@@ -1397,7 +1433,7 @@ if choicer == 'Ajuste':
 
 #...................................................................
 #...........................Integracao reporte..........................
-if choicer == 'Integracao':
+if choicer == 'Integração':
     st.write("Potencial evolucionario acesso") 
 
 #    st.write("Potencial evolucionario TE10") 
@@ -1433,20 +1469,20 @@ if choicer == 'Integracao':
         st.image("TE27R4.png", width=1000)
 #.............fim reporte.................
 
-#    st.write("Potencial evolucionario TE30") 
-    if matriz6[29,7] == 301:
-        st.image("TE30R1.png", width=1000)
-    if matriz6[29,7] == 302:
-        st.image("TE30R2.png", width=1000)
-    if matriz6[29,7] == 303:
-        st.image("TE30R3.png", width=1000)
-    if matriz6[29,7] == 304:
-        st.image("TE30R4.png", width=1000)
+#.............Potencial evolucionario TE31.......................
+    if matriz6[30,7] == 311:
+        st.image("TE31R1.png", width=1000)
+    if matriz6[30,7] == 312:
+        st.image("TE31R2.png", width=1000)
+    if matriz6[30,7] == 313:
+        st.image("TE31R3.png", width=1000)
+    if matriz6[30,7] == 314:
+        st.image("TE31R4.png", width=1000)
 #.............fim reporte.................
 
 #...................................................................
 #...........................Padronizacao reporte..........................
-if choicer == 'Padronizacao':
+if choicer == 'Padronização':
     st.write("Potencial evolucionario acesso") 
 
 #    st.write("Potencial evolucionario TE23") 
