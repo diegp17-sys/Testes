@@ -3,6 +3,8 @@ import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
 
+
+#streamlit run teste6.py 
 # from PIL import Image
 st.set_page_config(layout="wide")
 #...matrizes
@@ -406,7 +408,7 @@ vetorte11 = np.load(file = 'TE11.npy')
 vetorte12 = np.load(file = 'TE12.npy')
 vetorte13 = np.load(file = 'TE13.npy')
 vetorte16 = np.load(file = 'TE16.npy')
-vetorte17 = np.load(file = 'TE17.npy')
+vetorte17 = np.load(file = 'TE16.npy')  #ojo
 vetorte18 = np.load(file = 'TE18.npy')
 matriz = np.vstack([Vzero,vetorte10, vetorte11, vetorte12, vetorte13, Vzero, vetorte16, vetorte17,vetorte18])
 st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
