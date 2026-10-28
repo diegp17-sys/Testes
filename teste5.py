@@ -9,15 +9,20 @@ import io
 # from PIL import Image
 st.set_page_config(layout="wide")
 
+st.title("📋 Criar Lista de Dados")
+
+
+
 #....cargar imagem
-st.title("Cargar subsistema")
+st.title("Cargar imagem das Funções ")
 #arquivo1 = st.image("TE10R0.png", width=100)
-arquivo = st.file_uploader("Carregar o arquivo do subsistema para ser analisado", type=["png","jpg","jpeg"])
+arquivo = st.file_uploader("Carregar o arquivo das Funções para ser analisado", type=["png","jpg","jpeg"])
 if arquivo is not None:
-    st.write("A imagem do subsistema carregado é:")
-    st.image(arquivo, width=380)
+    #st.write("A imagem do subsistema carregado é:")
+    #st.image(arquivo, width=280)
+    st.write("Imagem carregada!!!")
 else:
-    st.write("Você ainda não carregou a imagem do subsistema")
+    st.write("Você ainda não carregou a imagem")
     #arquivo1 = st.image("TE15R0.png", width=100)
 
     
@@ -32,13 +37,20 @@ mz5 = np.zeros((1,8))
 mz6 = np.zeros((1,8))
 mz7 = np.zeros((1,8))
 mz8 = np.zeros((1,8))
+mz9 = np.zeros((1,8))
+mz10 = np.zeros((1,8))
+mz11 = np.zeros((1,8))
+mz12 = np.zeros((1,8))
+mz13 = np.zeros((1,8))
 #mz1[0,0]=1
 #....Diretrizes de Inserção
-st.title("Operações de Inserção")
+st.title("Diretrizes")
 #............................Posicionamento..............................
-choice1 = st.selectbox('Para as diretrizes de posicionamento ',['Escolha a TE asociada','TP 10 Evolução geométrica linear','TP 11 Evolução geométrica volumétrica','TP 12 Dinamização','TP 13 – Coordenação das ações','TP 16 – Combinar sistemas similares','TP 17 – Combinar sistemas diversos','TP 18 – Combinar sistemas diferentes']) 
+choice1 = st.selectbox('Diretrizes de posicionamento ',['Escolha a TE asociada','TP 10 Evolução geométrica linear','TP 11 Evolução geométrica volumétrica','TP 12 Dinamização','TP 13 – Coordenação das ações','TP 16 – Combinar sistemas similares','TP 17 – Combinar sistemas diversos','TP 18 – Combinar sistemas diferentes']) 
 if choice1 == 'TP 10 Evolução geométrica linear':
     st.write("Descrição: Passar de um objeto de 1D ou 2D para 3D, de acordo com os requerimentos.")
+    st.write("Se um objeto se movimenta dentro de uma reta, pode passar a se movimentar dentro de um plano, e passar a se movimentar no espaço.")
+
     st.write("Aumenta: Distribuição de cargas e de fluxo, área de superfície, facilita orientação de montagem, nova função, resistência, momento de inercia, estética, ergonomia.")
     #...selecionar etapas.....
     etapas=['1','2','3','4']
@@ -66,9 +78,9 @@ if choice1 == 'TP 10 Evolução geométrica linear':
         st.image("TE10R0.png", caption="Figura 1 - TE 10", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice1 == 'TP 11 Evolução geométrica volumétrica':
     st.write("**Descrição:** A geometria volumétrica pode melhorar ou adicionar caraterísticas. A evolução da tecnologia facilita esta tendencia.")
@@ -99,9 +111,9 @@ if choice1 == 'TP 11 Evolução geométrica volumétrica':
         st.image("TE11R0.png", caption="Figura 1 - TE 11", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice1 == 'TP 12 Dinamização':
     st.write("Descrição: Elementos rígidos tronam-se mais flexíveis e dinâmicos por meio de juntas. ")
@@ -136,9 +148,9 @@ if choice1 == 'TP 12 Dinamização':
         st.image("TE12R0.png", caption="Figura 1 - TE 12", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 
 # TE13
@@ -172,9 +184,9 @@ if choice1 == 'TP 13 – Coordenação das ações':
         st.image("TE13R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 # TE16
 if choice1 == 'TP 16 – Combinar sistemas similares':
     st.write("Descrição: Objetos similares podem ser introduzidos adicionalmente para desempenhar várias funções requeridas.")
@@ -206,9 +218,9 @@ if choice1 == 'TP 16 – Combinar sistemas similares':
         st.image("TE16R0.png", caption="Figura 1 - TE 16", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 # TE17
 if choice1 == 'TP 17 – Combinar sistemas diversos':
@@ -241,9 +253,9 @@ if choice1 == 'TP 17 – Combinar sistemas diversos':
         st.image("TE17R0.png", caption="Figura 1 - TE 16", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 # TE18
 if choice1 == 'TP 18 – Combinar sistemas diferentes':
     st.write("Descrição: ")
@@ -275,13 +287,13 @@ if choice1 == 'TP 18 – Combinar sistemas diferentes':
         st.image("TE18R0.png", caption="Figura 1 - TE 16", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 #...................................................................................................
 #..........................Diretrizes de Alinhamento................................................
 #...................................................................................................
-choice2 = st.selectbox('Para diretrizes de alinhamento',['Escolha a TE asociada','TEA 15 - Casamento com não-linearidades externas','TEA 16 – Combinar sistemas similares','TEA 17 – Combinar sistemas diversos','TEA 18 – Combinar sistemas diferentes'],) 
+choice2 = st.selectbox('Diretrizes de alinhamento',['Escolha a TE asociada','TEA 15 - Casamento com não-linearidades externas','TEA 16 – Combinar sistemas similares','TEA 17 – Combinar sistemas diversos','TEA 18 – Combinar sistemas diferentes'],) 
 
 if choice2 == 'TEA 15 - Casamento com não-linearidades externas':
     st.write("Descrição: A maioria de sistemas são projetados para permanecer dentro de determinadas condições de operação. As vezes o sistema deve operar fora desses limites.")
@@ -309,7 +321,10 @@ if choice2 == 'TEA 15 - Casamento com não-linearidades externas':
     with cols[0]:
         st.image("TE15R0.png", caption="Figura 1 - TE 15", width=780)
     with cols[2]:
-        st.image("DFX_alinhamento.png", caption="Figura 2 - Diretrizes de alinhamento", width=500)
+        if arquivo is not None: 
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
+        else:
+            st.write("Você ainda não carregou a imagem")
 
 if choice2 == 'TEA 16 – Combinar sistemas similares':
     st.write("Descrição: Objetos similares podem ser introduzidos adicionalmente para desempenhar várias funções requeridas.")
@@ -341,9 +356,9 @@ if choice2 == 'TEA 16 – Combinar sistemas similares':
         st.image("TE16R0.png", caption="Figura 1 - TE 15", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice2 == 'TEA 17 – Combinar sistemas diversos':
     st.write("Descrição: ")
@@ -375,9 +390,9 @@ if choice2 == 'TEA 17 – Combinar sistemas diversos':
         st.image("TE17R0.png", caption="Figura 1 - TE 17", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem ")
 
 
 if choice2 == 'TEA 18 – Combinar sistemas diferentes':
@@ -410,15 +425,15 @@ if choice2 == 'TEA 18 – Combinar sistemas diferentes':
         st.image("TE18R0.png", caption="Figura 1 - TE 18", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 #...
 
 #.................................3.........................................................
 #.......................diretrizes de orientacao...........................................
-choice3 = st.selectbox('Para diretrizes de orientação',['  Escolha a TE asociada  ','TES Simetria','TES Casamento com não-linearidades externas','TES Aumento do uso da cor']) 
+choice3 = st.selectbox('Diretrizes de orientação',['  Escolha a TE asociada  ','TES Simetria','TES Casamento com não-linearidades externas','TES Aumento do uso da cor']) 
 if choice3 == 'TES Simetria':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -446,9 +461,10 @@ if choice3 == 'TES Simetria':
         st.image("TE8R0.png", caption="Figura 1 - TE 12", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
+
 if choice3 == 'TES Casamento com não-linearidades externas':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -476,9 +492,10 @@ if choice3 == 'TES Casamento com não-linearidades externas':
         st.image("TE15R0.png", caption="Figura 1 - TE 15", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
+
 #TES Aumento do uso da cor
 if choice3 == 'TES Aumento do uso da cor':
     st.write("Descrição: ")
@@ -510,12 +527,13 @@ if choice3 == 'TES Aumento do uso da cor':
         st.image("TE21R0.png", caption="Figura 1 - TE 15", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem ")
+
 #.................................4.........................................................
 #.......................diretrizes de acesso...........................................
-choice3 = st.selectbox('Para diretrizes de acesso',['Escolha a TE asociada','TE5A – Evoluir de macro para nano','TE12A - Dinamizacao','TE22A – Aumento da transparência','TE27A – Eliminação de componentes']) 
+choice3 = st.selectbox('Diretrizes de acesso',['Escolha a TE asociada','TE5A – Evoluir de macro para nano','TE12A - Dinamizacao','TE22A – Aumento da transparência','TE27A – Eliminação de componentes']) 
 if choice3 == 'TE5A – Evoluir de macro para nano':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -546,9 +564,9 @@ if choice3 == 'TE5A – Evoluir de macro para nano':
         st.image("TE5R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 if choice3 == 'TE12A - Dinamizacao':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -582,9 +600,9 @@ if choice3 == 'TE12A - Dinamizacao':
         st.image("TE12R0.png", caption="Figura 1 - TE 12", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE22A – Aumento da transparência':
     st.write("Descrição: ")
@@ -616,9 +634,9 @@ if choice3 == 'TE22A – Aumento da transparência':
         st.image("TE22R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE27A – Eliminação de componentes':
     st.write("Descrição: ")
@@ -647,16 +665,16 @@ if choice3 == 'TE27A – Eliminação de componentes':
     #plot figuras
     cols = st.columns([2, 2, 4])
     with cols[0]:
-        st.image("TE5R0.png", caption="Figura 1 - TE 5", width=780)
+        st.image("TE27R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 #.................................5.........................................................
 #.......................diretrizes de ajuste................................................
-choice3 = st.selectbox('Para diretrizes de ajuste',['Escolha a TE asociada','TE11AJ – Ev. geométrica volumétrica','TE12A - Dinamizacao','TE15AJ – Casamento com não-linearidades externas']) 
+choice3 = st.selectbox('Diretrizes de ajuste',['Escolha a TE asociada','TE11AJ – Ev. geométrica volumétrica','TE12A - Dinamizacao','TE15AJ – Casamento com não-linearidades externas']) 
 if choice3 == 'TE11AJ – Ev. geométrica volumétrica':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -687,9 +705,9 @@ if choice3 == 'TE11AJ – Ev. geométrica volumétrica':
         st.image("TE11R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 if choice3 == 'TE12A - Dinamizacao':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -723,9 +741,9 @@ if choice3 == 'TE12A - Dinamizacao':
         st.image("TE12R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE15AJ – Casamento com não-linearidades externas':
     st.write("Descrição: ")
@@ -754,13 +772,13 @@ if choice3 == 'TE15AJ – Casamento com não-linearidades externas':
         st.image("TE15R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 #.................................6.........................................................
 #.......................diretrizes de integração ...........................................
-choice3 = st.selectbox('Para diretrizes de integração ',['Escolha a TE asociada','TE10I – Evolução da geometria linear','TE11I – Evolução geométrica volumétrica','TE27I – Eliminação de componentes','TE30I – Redução do número de conversões de energia']) 
+choice3 = st.selectbox('Diretrizes de integração ',['Escolha a TE asociada','TE10I – Evolução da geometria linear','TE11I – Evolução geométrica volumétrica','TE27I – Eliminação de componentes','TE30I – Redução do número de conversões de energia']) 
 if choice3 == 'TE10I – Evolução da geometria linear':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -791,9 +809,9 @@ if choice3 == 'TE10I – Evolução da geometria linear':
         st.image("TE10R0.png", caption="Figura 1 - TE 5", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE11I – Evolução geométrica volumétrica':
     st.write("Descrição: ")
@@ -825,9 +843,9 @@ if choice3 == 'TE11I – Evolução geométrica volumétrica':
         st.image("TE11R0.png", caption="Figura 1 - TE 11", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE27I – Eliminação de componentes':
     st.write("Descrição: ")
@@ -859,9 +877,9 @@ if choice3 == 'TE27I – Eliminação de componentes':
         st.image("TE27R0.png", caption="Figura 1 - TE 27", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem ")
 
 if choice3 == 'TE30I – Redução do número de conversões de energia':
     st.write("Descrição: ")
@@ -893,14 +911,14 @@ if choice3 == 'TE30I – Redução do número de conversões de energia':
         st.image("TE31R0.png", caption="Figura 1 - TE 31", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 
 #.................................7.........................................................
 #.......................diretrizes de padronização...........................................
-choice3 = st.selectbox('Para diretrizes de padronização',['Escolha a TE asociada','TE23P – Foco de compra dos clientes','']) 
+choice3 = st.selectbox('Diretrizes de padronização',['Escolha a TE asociada','TE23P – Foco de compra dos clientes','']) 
 if choice3 == 'TE23P – Foco de compra dos clientes':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -931,13 +949,13 @@ if choice3 == 'TE23P – Foco de compra dos clientes':
         st.image("TE23R0.png", caption="Figura 1 - TE 23", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 #.................................8.........................................................
 #.......................diretrizes de sequencia...........................................
-choice3 = st.selectbox('Para diretrizes de sequencia',['Escolha a TE asociada','TE13SE – Coordenação das ações','TE16SE – Combinar sistemas similares','TE17SE – Combinar sistemas diversos','TE18SE – Combinar sistemas diferentes','TE26SE – Graus de liberdade']) 
+choice3 = st.selectbox('Diretrizes de sequencia',['Escolha a TE asociada','TE13SE – Coordenação das ações','TE16SE – Combinar sistemas similares','TE17SE – Combinar sistemas diversos','TE18SE – Combinar sistemas diferentes','TE26SE – Graus de liberdade']) 
 if choice3 == 'TE13SE – Coordenação das ações':
     st.write("Descrição: ")
     st.write("Aumenta: " )
@@ -968,7 +986,7 @@ if choice3 == 'TE13SE – Coordenação das ações':
         st.image("TE13R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1002,7 +1020,7 @@ if choice3 == 'TE16SE – Combinar sistemas similares':
         st.image("TE16R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 if choice3 == 'TE17SE – Combinar sistemas diversos':
@@ -1035,9 +1053,9 @@ if choice3 == 'TE17SE – Combinar sistemas diversos':
         st.image("TE17R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
 
 if choice3 == 'TE18SE – Combinar sistemas diferentes':
     st.write("Descrição: ")
@@ -1069,9 +1087,9 @@ if choice3 == 'TE18SE – Combinar sistemas diferentes':
         st.image("TE18R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou")
 
 if choice3 == 'TE26SE – Graus de liberdade':
     st.write("Descrição: ")
@@ -1103,14 +1121,88 @@ if choice3 == 'TE26SE – Graus de liberdade':
         st.image("TE26R0.png", caption="Figura 1 - TE 13", width=780)
     with cols[2]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
         else:
-            st.write("Você ainda não carregou a imagem do subsistema")
+            st.write("Você ainda não carregou a imagem")
+
+
+#.................................9.........................................................
+#.......................diretrizes de fixacao...........................................
+choice3 = st.selectbox('Diretrizes de fixação',['Escolha a TE asociada','TE1FI – Materiais inteligentes','TE2FI – Segmentar o espaço','TE11FI – Evolução geométrica volumétrica','TE15FI – Casamento com não-linearidades externas','TE27FI – Eliminação de componentes']) 
+if choice3 == 'TE1FI – Materiais inteligentes':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
+    #...selecionar etapas
+    etapass=['1','2','3','4']
+    choicems1 = st.select_slider('Selecione a etapa atual:', options=etapass)
+    #st.write("A etapa é: ",choicem)
+    mz9[0,0]='1'
+    mz9[0,6]=choicems1
+    if choicems1 == '1':
+        mz9[0,1]=1
+        mz9[0,7]=11
+    if choicems1 == '2':
+        mz9[0,2]=1
+        mz9[0,7]=12
+    if choicems1 == '3':
+        mz9[0,3]=1 
+        mz9[0,7]=13
+    if choicems1 == '4':
+        mz9[0,3]=1 
+        mz9[0,7]=14
+    np.save(file = 'TE1FI', arr=mz9) 
+    #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE1R0.png", caption="Figura 1 - TE 1", width=780)
+    with cols[2]:
+        if arquivo is not None: 
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
+        else:
+            st.write("Você ainda não carregou a imagem")
+
+#.............................
+if choice3 == 'TE2FI – Segmentar o espaço':
+    st.write("Descrição: ")
+    st.write("Aumenta: " )
+    st.write("Reduz:  ") 
+    #...selecionar etapas
+    etapass=['1','2','3','4']
+    choicems2 = st.select_slider('Selecione a etapa atual:', options=etapass)
+    #st.write("A etapa é: ",choicem)
+    mz9[0,0]='2'
+    mz9[0,6]=choicems2
+    if choicems2 == '1':
+        mz9[0,1]=1
+        mz9[0,7]=21
+    if choicems2 == '2':
+        mz9[0,2]=1
+        mz9[0,7]=22
+    if choicems2 == '3':
+        mz9[0,3]=1 
+        mz9[0,7]=23
+    if choicems2 == '4':
+        mz9[0,3]=1 
+        mz9[0,7]=24
+    np.save(file = 'TE2FI', arr=mz9) 
+    #.....fim etapas
+    #plot figuras
+    cols = st.columns([2, 2, 4])
+    with cols[0]:
+        st.image("TE2R0.png", caption="Figura 1 - TE 2", width=780)
+    with cols[2]:
+        if arquivo is not None: 
+            st.image(arquivo, caption="Figura 2 - Funções ", width=800)
+        else:
+            st.write("Você ainda não carregou a imagem")
+
 
 #............................................................................................
 #............................................................................................
 #...........................................MATRIZES.........................................
-#.........matriz 1....................
+#.........matriz 1...........................................................................
 Vz = [1,1,1,1,1,1,1,1]
 vetorte10 = np.load(file = 'TE10.npy')
 vetorte11 = np.load(file = 'TE11.npy')
@@ -1181,6 +1273,17 @@ matriz8 = np.vstack([Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,vetortes13,Vz, Vz, veto
 #st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
 valseq=matriz8[:,6]
 
+#...........................................matriz 9.......................................
+vetortes1 = np.load(file = 'TE1FI.npy')
+vetortes2 = np.load(file = 'TE2FI.npy')
+vetortes11 = np.load(file = 'TE17SE.npy')
+vetortes15 = np.load(file = 'TE18SE.npy')
+vetortes27 = np.load(file = 'TE26SE.npy')
+matriz9 = np.vstack([vetortes1,vetortes2,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz, Vz, Vz, Vz, Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz,Vz])
+#st.write("Matriz de Tedencias vs. Estapas",matriz[:,(0,1,2,3,4,5)])
+valfix=matriz9[:,6]
+
+
 #.............................................................................................
 #.....................................Grafico de radar.................................
 st.title("Gráfico radar do potencial evolucionário")
@@ -1195,6 +1298,7 @@ df = pd.DataFrame({
     'Valor 6': valint,
     'Valor 7': valpad,
     'Valor 8': valseq,
+    'Valor 9': valfix,
     #'Valor 2': [4, 0, 3, 4, 5]
 })
 
@@ -1215,7 +1319,7 @@ fig.add_trace(go.Scatterpolar(
         r=df['Valor 3'],
         theta=df['Eje'],
         fill='toself',
-        name='Simetria'
+        name='Orientação'
     ))
 fig.add_trace(go.Scatterpolar(
         r=df['Valor 4'],
@@ -1227,25 +1331,31 @@ fig.add_trace(go.Scatterpolar(
         r=df['Valor 5'],
         theta=df['Eje'],
         fill='toself',
-        name='Sequencia'
+        name='Ajuste'
     ))
 fig.add_trace(go.Scatterpolar(
         r=df['Valor 6'],
         theta=df['Eje'],
         fill='toself',
-        name='Sequencia'
+        name='Integração'
     ))
 fig.add_trace(go.Scatterpolar(
         r=df['Valor 7'],
         theta=df['Eje'],
         fill='toself',
-        name='Sequencia'
+        name='Padronização'
     ))
 fig.add_trace(go.Scatterpolar(
         r=df['Valor 8'],
         theta=df['Eje'],
         fill='toself',
-        name='Sequencia'
+        name='Sequência'
+    ))
+fig.add_trace(go.Scatterpolar(
+        r=df['Valor 9'],
+        theta=df['Eje'],
+        fill='toself',
+        name='Fixação'
     ))
 fig.update_layout(
         polar=dict(
@@ -1261,12 +1371,11 @@ st.plotly_chart(fig, use_container_width=True)
 
 #.............................................
 #.............reporte.........................
-st.title("Reporte")
+st.title("Reporte do potencial evolucionario")
 #.....Posicionamento
 #st.write(mz1)
 
-
-choicer = st.selectbox('Diretrizes para gerar reporte',['Escolha o grupo de diretrizes','Posicionamento','Alinhamento','Simetria','Acesso','Ajuste','Integração','Padronização','Sequencia']) 
+choicer = st.selectbox('Diretrizes para gerar reporte',['Escolha o grupo de diretrizes','Posicionamento','Alinhamento','Simetria','Acesso','Ajuste','Integração','Padronização','Sequencia','Fixação']) 
 
 if choicer == 'Posicionamento':
     cols = st.columns([2, 1, 1])
@@ -1280,7 +1389,8 @@ if choicer == 'Posicionamento':
             st.image("TE10R3.png", width=2000)
         if matriz1[9,7] == 104:
             st.image("TE10R4.png", width=2000)
-
+        #st.write("TE10 - O aumento das dimensões permite adicionar caraterísticas ou funcionalidades ")
+        st.write("TE10 - Se um objeto se movimenta dentro de uma reta, pode passar a se movimentar dentro de um plano, e passar a se movimentar no espaço.")
 
 #    st.write("Potencial evolucionario TE11") 
         if matriz1[10,7] == 111:
@@ -1291,8 +1401,8 @@ if choicer == 'Posicionamento':
             st.image("TE11R3.png", width=1000)
         if matriz1[10,7] == 114:
             st.image("TE11R4.png", width=1000)
-
-
+        st.write("TE11 - Uma estrutura planar, pode se tornar uma estrutura 2D e 3D para melhorar suas caraterísticas como a distribuição de carga e de esforços, momento de inercia, área de superfície, localização, ou adicionar funções adicionais ")
+        #st.write("TE10 -  ")
 #    st.write("Potencial evolucionario TE12") 
         if matriz1[11,7] == 121:
             st.image("TE12R1.png", width=1000)
@@ -1302,6 +1412,8 @@ if choicer == 'Posicionamento':
             st.image("TE12R3.png", width=1000)
         if matriz1[11,7] == 124:
             st.image("TE12R4.png", width=1000)
+        st.write("TE12 - A Dinamização consiste em segmentar o sistema para adicionar maior flexibilidade posicional e operacional, controlabilidade, precisão. Dando saltos do mecânico ao fluido e ao gasoso. ")
+
 
 #    st.write("Potencial evolucionario TE16") 
         if matriz1[15,7] == 161:
@@ -1312,6 +1424,7 @@ if choicer == 'Posicionamento':
             st.image("TE16R3.png", width=1000)
         if matriz1[15,7] == 164:
             st.image("TE16R4.png", width=1000)
+        st.write("TE16 - Objetos similares podem ser agrupados para aumentar a capacidade funcional ou a distribuição da função. Reduzir os custos por componente do sistema.")
 
 #    st.write("Potencial evolucionario TE17") 
         if matriz1[16,7] == 171:
@@ -1322,6 +1435,8 @@ if choicer == 'Posicionamento':
             st.image("TE17R3.png", width=1000)
         if matriz1[16,7] == 174:
             st.image("TE17R4.png", width=1000)
+        st.write("TE17 - Objetos diversos podem ser combinados em um único sistema universal para realizar todas as funções. Deve-se considerar que existe um ponto máximo para obter benefícios ao aumentar a quantidade de objetos diferentes.")
+
 
 #    st.write("Potencial evolucionario TE18") 
         if matriz1[17,7] == 181:
@@ -1332,9 +1447,12 @@ if choicer == 'Posicionamento':
             st.image("TE18R3.png", width=1000)
         if matriz1[17,7] == 184:
             st.image("TE18R4.png", width=1000)
+        st.write("TE18 - Combinar objetos diferentes (opostos) permite aumentar as funcionalidades, operacionalidade e adaptabilidade. Reduzindo o número de sistemas, tamanho liquido do sistema e a embalagem. ")
+
+
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1344,7 +1462,7 @@ if choicer == 'Alinhamento':
     cols = st.columns([2, 1, 1])
     with cols[0]:
     #plot figuras
-        st.write("Potencial evolucionario.") 
+        #st.write("Potencial evolucionario.") 
     #    st.write("Potencial evolucionario TE15") 
         if matriz2[14,7] == 151:
             st.image("TE15R1.png", width=1000)
@@ -1354,6 +1472,8 @@ if choicer == 'Alinhamento':
             st.image("TE15R3.png", width=1000)
         if matriz2[14,7] == 154:
             st.image("TE15R4.png", width=1000)
+        st.write("TE15 - Consiste em adaptar o sistema para as não linearidades. Permite reduzir a complexidade, o custo de manufatura, aumenta a confiabilidade, manutenibilidade e segurança no uso. Reduz o caso de falhas catastróficas. ")
+
 
     #    st.write("Potencial evolucionario TE16") 
         if matriz2[15,7] == 161:
@@ -1364,6 +1484,7 @@ if choicer == 'Alinhamento':
             st.image("TE16R3.png", width=1000)
         if matriz2[15,7] == 164:
             st.image("TE16R4.png", width=1000)
+        st.write("TE16 - Objetos similares podem ser agrupados para aumentar a capacidade funcional ou a distribuição da função. Reduzir os custos por componente do sistema.")
 
     #    st.write("Potencial evolucionario TE17") 
         if matriz2[16,7] == 171:
@@ -1374,6 +1495,8 @@ if choicer == 'Alinhamento':
             st.image("TE17R3.png", width=1000)
         if matriz2[16,7] == 174:
             st.image("TE17R4.png", width=1000)
+        st.write("TE17 - Objetos diversos podem ser combinados em um único sistema universal para realizar todas as funções. Deve-se considerar que existe um ponto máximo para obter benefícios ao aumentar a quantidade de objetos diferentes.")
+
 
     #    st.write("Potencial evolucionario TE18") 
         if matriz2[17,7] == 181:
@@ -1384,10 +1507,11 @@ if choicer == 'Alinhamento':
             st.image("TE18R3.png", width=1000)
         if matriz2[17,7] == 184:
             st.image("TE18R4.png", width=1000)
+        st.write("TE18 - Combinar objetos diferentes (opostos) permite aumentar as funcionalidades, operacionalidade e adaptabilidade. Reduzindo o número de sistemas, tamanho liquido do sistema e a embalagem. ")
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1397,7 +1521,7 @@ if choicer == 'Alinhamento':
 if choicer == 'Simetria':
     cols = st.columns([2, 1, 1])
     with cols[0]:
-        st.write("Potencial evolucionario.") 
+       # st.write("Potencial evolucionario.") 
     #    st.write("Potencial evolucionario TE8") 
         if matriz3[7,7] == 81:
             st.image("TE8R1.png", width=1000)
@@ -1428,7 +1552,7 @@ if choicer == 'Simetria':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1437,7 +1561,7 @@ if choicer == 'Simetria':
 if choicer == 'Acesso':
     cols = st.columns([2, 1, 1])
     with cols[0]:
-        st.write("Potencial evolucionario acesso") 
+        #st.write("Potencial evolucionario acesso") 
     #    st.write("Potencial evolucionario TE5") 
         if matriz4[4,7] == 51:
             st.image("TE5R1.png", width=1000)
@@ -1482,7 +1606,7 @@ if choicer == 'Acesso':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1491,7 +1615,7 @@ if choicer == 'Acesso':
 if choicer == 'Ajuste':
     cols = st.columns([2, 1, 1])
     with cols[0]:
-        st.write("Potencial evolucionario acesso") 
+        #st.write("Potencial evolucionario acesso") 
     #    st.write("Potencial evolucionario TE11") 
         if matriz5[10,7] == 111:
             st.image("TE11R1.png", width=1000)
@@ -1525,7 +1649,7 @@ if choicer == 'Ajuste':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1535,7 +1659,7 @@ if choicer == 'Ajuste':
 if choicer == 'Integração':
     cols = st.columns([2, 1, 1])
     with cols[0]:
-        st.write("Potencial evolucionario acesso") 
+       # st.write("Potencial evolucionario acesso") 
 
     #    st.write("Potencial evolucionario TE10") 
         if matriz6[9,7] == 101:
@@ -1583,7 +1707,7 @@ if choicer == 'Integração':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1594,7 +1718,7 @@ if choicer == 'Padronização':
     cols = st.columns([2, 1, 1])
     with cols[0]:
         
-        st.write("Potencial evolucionario acesso") 
+       # st.write("Potencial evolucionario acesso") 
     #    st.write("Potencial evolucionario TE23") 
         if matriz7[22,7] == 231:
             st.image("TE23R1.png", width=1000)
@@ -1607,7 +1731,7 @@ if choicer == 'Padronização':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 
@@ -1618,7 +1742,7 @@ if choicer == 'Sequencia':
     cols = st.columns([2, 1, 1])
     with cols[0]:
 
-        st.write("Potencial evolucionario acesso") 
+       # st.write("Potencial evolucionario sequencia") 
 
     #    st.write("Potencial evolucionario TE13") 
         if matriz8[12,7] == 131:
@@ -1660,7 +1784,7 @@ if choicer == 'Sequencia':
         if matriz8[17,7] == 184:
             st.image("TE18R4.png", width=1000)
         
-    #    st.write("Potencial evolucionario TE18") 
+    #    st.write("Potencial evolucionario TE26") 
         if matriz8[25,7] == 261:
             st.image("TE26R1.png", width=1000)
         if matriz8[25,7] == 262:
@@ -1672,13 +1796,42 @@ if choicer == 'Sequencia':
 
     with cols[1]:
         if arquivo is not None: 
-            st.image(arquivo, caption="Figura 2 - Subsistema ", width=500)
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
         else:
             st.write("Você ainda não carregou a imagem do subsistema")
 #.............fim reporte.................
-#.............fim reporte.................
 
 
+#...........................................................................
+#...........................Posicionamento reporte..........................
+if choicer == 'Fixação':
+    cols = st.columns([2, 1, 1])
+    with cols[0]:
+    #........Potencial evolucionario TE1
+        if matriz9[0,7] == 11:
+            st.image("TE1R1.png", width=1000)
+        if matriz9[0,7] == 12:
+            st.image("TE1R2.png", width=1000)
+        if matriz9[0,7] == 13:
+            st.image("TE1R3.png", width=1000)
+        if matriz9[0,7] == 14:
+            st.image("TE1R4.png", width=1000)
+
+   #........Potencial evolucionario TE2
+        if matriz9[1,7] == 21:
+            st.image("TE2R1.png", width=1000)
+        if matriz9[1,7] == 22:
+            st.image("TE2R2.png", width=1000)
+        if matriz9[1,7] == 23:
+            st.image("TE2R3.png", width=1000)
+        if matriz9[1,7] == 24:
+            st.image("TE2R4.png", width=1000)
+
+    with cols[1]:
+        if arquivo is not None: 
+            st.image(arquivo, caption="Figura 2 - Subsistema ", width=800)
+        else:
+            st.write("Você ainda não carregou a imagem do subsistema")
 
 #....plot matrizes
 #st.title("Matrizes Tedencias da evolucao vs. Estapas atuais")
